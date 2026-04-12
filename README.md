@@ -1,7 +1,7 @@
 
 # mj.mokhtar — Personal Portfolio
 
-Personal portfolio of Muhammad Jumi'at Mokhtar, Embedded Systems & IoT Engineer based in Jakarta, Indonesia.
+Personal portfolio of Muhammad Jumi'at Mokhtar, Embedded Systems & IoT Engineer based in Djakarta, Indonesia.
 
 Built with Vue 3 + Vite + Tailwind CSS v4. Inspired by [Swissfolio](https://github.com/michael-andreuzza/swissfolio) by Michael Andreuzza.
 
