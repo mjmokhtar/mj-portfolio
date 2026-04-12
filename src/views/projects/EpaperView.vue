@@ -1,6 +1,7 @@
 <script setup>
 import { projectDetails } from '../../data/projectDetails.js'
 import { RouterLink } from 'vue-router'
+// import ProjectGallery from '../../components/ProjectGallery.vue'
 
 const project = projectDetails.epaper
 </script>
@@ -48,10 +49,13 @@ const project = projectDetails.epaper
         <p style="font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6rem);font-weight:700;font-style:italic;line-height:1;opacity:0.15;">
           Coming Soon
         </p>
+        
         <p class="text-sm opacity-50 max-w-md leading-relaxed">
           Full case study with PCB renders, firmware architecture, and hardware photos is being prepared.
         </p>
       </div>
+      <!-- gallery -->
+        <!-- <ProjectGallery :gallery="project.gallery" /> -->
 
       <div class="h-0.5 bg-secondary"></div>
 

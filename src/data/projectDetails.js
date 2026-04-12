@@ -9,6 +9,11 @@ export const projectDetails = {
     stack: ["Node.js", "Modbus TCP/IP", "UDP", "PostgreSQL", "MySQL", "RESTful API", "Node-RED", "RESTEK"],
     sites: ["Jabodebek LRT — ATWP & RFID Train System", "ANTAM POMALA — Industrial Weightbridge"],
     impact: ["99% system uptime", "40% reduction in manual inspection"],
+    gallery: [
+      { src: "/projects/atwp/atwp-1.png", caption: "github repository" },
+      { src: "/projects/atwp/atwp-2.png", caption: "API documentation" },
+      { src: "/projects/atwp/atwp-3.png", caption: "Architecture diagram" },
+    ],
   },
   epaper: {
     num: "02.",
@@ -20,6 +25,11 @@ export const projectDetails = {
     stack: ["ESP32", "SSD1680", "ESP-IDF", "KiCad", "C", "C++"],
     sites: [],
     impact: ["5-page badge layout", "Custom GFX layer", "10×10cm PCB — JLCPCB ready"],
+    gallery: [
+      { src: "/projects/epaper/epaper-1.jpg", caption: "PCB design" },
+      { src: "/projects/epaper/epaper-2.jpg", caption: "Badge prototype" },
+      { src: "/projects/epaper/epaper-3.jpg", caption: "Display test" },
+    ],
   },
   runningText: {
     num: "04.",
@@ -31,5 +41,10 @@ export const projectDetails = {
     stack: ["Arduino", "Espressif", "C", "C++", "Eagle PCB", "Raspberry Pi"],
     sites: ["Jabodebek LRT", "Commuter Line"],
     impact: ["50+ deployed train units", "Enhanced display stability and reliability"],
+    gallery: [
+      { src: "/projects/running-text/running-text-1.PNG", caption: "Testing board" },
+      { src: "/projects/running-text/running-text-2.PNG", caption: "UAT" },
+      { src: "/projects/running-text/running-text-3.PNG", caption: "Network Integration" },
+    ],
   },
 }

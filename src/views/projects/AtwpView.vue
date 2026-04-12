@@ -1,6 +1,7 @@
 <script setup>
 import { projectDetails } from '../../data/projectDetails.js'
 import { RouterLink } from 'vue-router'
+import ProjectGallery from '../../components/ProjectGallery.vue'
 
 const project = projectDetails.atwp
 </script>
@@ -51,17 +52,19 @@ const project = projectDetails.atwp
       </div>
 
       <!-- rule -->
-      <div class="h-0.5 bg-secondary"></div>
+      <!-- <div class="h-0.5 bg-secondary"></div> -->
 
       <!-- coming soon block -->
-      <div class="py-32 flex flex-col items-center justify-center text-center gap-6">
+      <!-- <div class="py-32 flex flex-col items-center justify-center text-center gap-6">
         <p style="font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6rem);font-weight:700;font-style:italic;line-height:1;opacity:0.15;">
           Coming Soon
         </p>
         <p class="text-sm opacity-50 max-w-md leading-relaxed">
           Full case study with architecture diagrams, hardware photos, and deployment details is being prepared.
         </p>
-      </div>
+      </div> -->
+      <!-- gallery -->
+      <ProjectGallery :gallery="project.gallery" />
 
       <!-- rule -->
       <div class="h-0.5 bg-secondary"></div>
