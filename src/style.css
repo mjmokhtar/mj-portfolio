@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: Geist, sans-serif;
+  --color-primary: #f4f5ef;
+  --color-secondary: #161614;
+}
+
+* {
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background-color: #161614;
+  color: #f4f5ef;
+}
