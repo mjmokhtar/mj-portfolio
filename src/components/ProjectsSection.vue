@@ -4,9 +4,8 @@ import { projects } from '../data/projects.js'
 
 <template>
   <section class="bg-primary">
-    <div class="px-8 max-w-7xl mx-auto py-18">
+    <div class="px-8 max-w-7xl mx-auto py-6">
 
-      <!-- header -->
       <div class="space-y-2">
         <div class="h-0.5 bg-secondary"
           data-aos="fade-up"
@@ -19,7 +18,6 @@ import { projects } from '../data/projects.js'
         </h3>
       </div>
 
-      <!-- grid 4 columns -->
       <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 list-none">
         <li
           v-for="(project, index) in projects"
@@ -28,27 +26,27 @@ import { projects } from '../data/projects.js'
           data-aos="fade-up"
           :data-aos-duration="1500 + index * 500">
 
-          <a :href="project.url" class="group block">
-
-            <!-- number -->
+          <!-- external link -->
+          <a v-if="project.external"
+            :href="project.url"
+            target="_blank"
+            class="group block">
             <p class="num-text">{{ project.num }}</p>
-
-            <!-- title -->
-            <p class="italic text-secondary shrink-0 group-hover:opacity-60 transition-opacity duration-200 text-base mt-2">
-              {{ project.title }}
-            </p>
-
-            <!-- description -->
-            <p class="text-xl mt-3 indent-9 leading-relaxed text-secondary">
-              {{ project.description }}
-            </p>
-
-            <!-- stack -->
-            <p class="text-xs mt-3 opacity-50 text-secondary">
-              {{ project.stack }}
-            </p>
-
+            <p class="italic text-secondary shrink-0 group-hover:opacity-60 transition-opacity duration-200 text-base mt-2">{{ project.title }}</p>
+            <p class="text-xl mt-3 indent-9 leading-relaxed text-secondary">{{ project.description }}</p>
+            <p class="text-xs mt-3 opacity-50 text-secondary">{{ project.stack }}</p>
           </a>
+
+          <!-- internal link -->
+          <RouterLink v-else
+            :to="project.url"
+            class="group block">
+            <p class="num-text">{{ project.num }}</p>
+            <p class="italic text-secondary shrink-0 group-hover:opacity-60 transition-opacity duration-200 text-base mt-2">{{ project.title }}</p>
+            <p class="text-xl mt-3 indent-9 leading-relaxed text-secondary">{{ project.description }}</p>
+            <p class="text-xs mt-3 opacity-50 text-secondary">{{ project.stack }}</p>
+          </RouterLink>
+
         </li>
       </ul>
 
