@@ -28,7 +28,7 @@ export const projects = [
   {
     num: "04.",
     title: "Running Text LED",
-    description: "Middleware converting raw machine protocols — Modbus, UDP, FTP — into web-consumable data. Deployed across Jabodebek LRT and ANTAM POMALA weightbridge. 99% uptime, 40% reduction in manual inspection.",
+    description: "Designed and developed an ESP32-based RGB LED controller with network communication for Front Destination Information running text displays used in Jabodebek and Commuter Line trains. Enhanced display stability and reliability across 50+ deployed train units.",
     stack: "Arduino · Espressif · C · C++ · Eagle PCB · Raspberry Pi",
     url: "/projects/running-text",
     external: false,
