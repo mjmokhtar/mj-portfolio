@@ -5,9 +5,13 @@ Personal portfolio of Muhammad Jumi'at Mokhtar, Embedded Systems & IoT Engineer 
 
 Built with Vue 3 + Vite + Tailwind CSS v4. Inspired by [Swissfolio](https://github.com/michael-andreuzza/swissfolio) by Michael Andreuzza.
 
-## Live
+## Live OLD
 
-[mjmokhtar.cloud](https://mjmokhtar.netlify.app)
+[mjmokhtar.netlify.app](https://mjmokhtar.netlify.app)
+
+## Live New
+
+[mjmokhtar.cloud](https://mjmokhtar.cloud)
 
 ## Tech Stack
 
