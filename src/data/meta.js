@@ -1,6 +1,6 @@
 export const meta = {
   name: "Muhammad Jumi'at Mokhtar",
-  shortName: "mj.mokhtar",
+  shortName: "m.j.mokhtar",
   roles: ["IoT", "Embedded Systems", "PM"],
   status: "Available for work",
   bio: {
@@ -18,7 +18,7 @@ export const meta = {
     { label: "Email",    url: "mailto:mjmmiat01@gmail.com" },
   ],
   footer: {
-    left: "Have launched J2ME Retro",
+    left: "Have launched",
     linkLabel: "J2ME Retro",
     linkUrl: "https://j2me-retro.mjmokhtar.cloud",
     right: "Get it on",
