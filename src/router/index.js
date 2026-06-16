@@ -22,6 +22,11 @@ const routes = [
     name: 'running-text',
     component: () => import('../views/projects/RunningTextView.vue'),
   },
+  {
+    path: '/portfolio',
+    name: 'portfolio',
+    component: () => import('../views/portfolio/FlipBookViewer.vue'),
+  }
 ]
 
 const router = createRouter({
