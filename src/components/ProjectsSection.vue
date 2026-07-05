@@ -69,11 +69,12 @@ import { projects } from '../data/projects.js'
   .num-text {
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    transform: rotate(360deg);
+    transform: rotate(270deg);
     height: auto;
     width: fit-content;
-    margin-bottom: 2rem;
-    font-size: 8rem;
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
+    font-size: 7rem;
   }
 }
 </style>

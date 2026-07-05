@@ -19,8 +19,8 @@ export const meta = {
   ],
   footer: {
     left: "Have launched",
-    linkLabel: "J2ME Retro",
-    linkUrl: "https://j2me-retro.mjmokhtar.cloud",
+    linkLabel: "Toaster Store Gumroad",
+    linkUrl: "https://store.mjmokhtar.cloud",
     right: "Get it on",
     rightLinkLabel: "GitHub",
     rightLinkUrl: "https://github.com/mjmokhtar",

@@ -26,6 +26,11 @@ const routes = [
     path: '/portfolio',
     name: 'portfolio',
     component: () => import('../views/portfolio/FlipBookViewer.vue'),
+  },
+  {
+    path: '/resume',
+    name: 'resume',
+    component: () => import('../views/resume/FlipBookViewer.vue'),
   }
 ]
 

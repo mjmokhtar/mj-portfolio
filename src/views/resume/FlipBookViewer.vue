@@ -4,7 +4,7 @@
     <!-- top bar -->
     <header class="top-bar">
       <button @click="$router.back()" class="top-btn">← Back</button>
-      <span class="doc-title">Portfolio — MJ Mokhtar</span>
+      <span class="doc-title">Curriculum Vitae — MJ Mokhtar</span>
       <div class="top-right">
         <template v-if="!isMobile">
           <button @click="zoomOut"   class="top-btn">−</button>
@@ -19,7 +19,7 @@
     <!-- loading -->
     <div v-if="loading" class="center-state">
       <div class="loading-dots"><span /><span /><span /></div>
-      <p>Memuat portfolio...</p>
+      <p>Memuat Curriculum Vitae...</p>
     </div>
 
     <!-- error -->
@@ -420,7 +420,7 @@ async function loadPdf() {
       pdfjsLib.GlobalWorkerOptions.workerSrc =
         'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'
     }
-    pdfDoc = await pdfjsLib.getDocument('/portfolio_mjmokhtar.pdf').promise
+    pdfDoc = await pdfjsLib.getDocument('/resume_mjmokhtar.pdf').promise
     totalPages.value = pdfDoc.numPages
     const fp = await pdfDoc.getPage(1)
     const vp = fp.getViewport({ scale: 1 })
