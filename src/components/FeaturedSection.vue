@@ -62,7 +62,7 @@ import { meta } from '../data/meta.js'
           <p class="footer-watermark" aria-hidden="true">m.j.mokhtar</p>
 
           <!-- konten footer di atas watermark -->
-          <div class="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 py-10">
+          <div class="relative z-10 w-full flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 py-10">
             <p style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,4rem);font-weight:700;font-style:italic;line-height:1.1;color:#161614;"
               data-aos="fade-up"
               data-aos-duration="2000">
@@ -103,6 +103,8 @@ import { meta } from '../data/meta.js'
   min-height: 260px;
   display: flex;
   align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* watermark nama — besar, samar, terpotong di bawah seperti Tiger Data */
