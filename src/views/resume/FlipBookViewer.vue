@@ -121,12 +121,12 @@ let   pdfAspect  = 0.707
 // ── computed ──
 const totalStates = computed(() => {
   if (totalPages.value <= 0) return 0
-  if (totalPages.value <= 2) return totalPages.value
-  return 2 + Math.ceil((totalPages.value - 2) / 2)
+  if (totalPages.value === 1) return 1
+  return 1 + Math.ceil((totalPages.value - 1) / 2)
 })
 
 const isCover = computed(() => cur.value === 0)
-const isBack  = computed(() => cur.value === totalStates.value - 1)
+const isBack = computed(() => false)
 
 const showLeft  = computed(() => !isCover.value)
 const showRight = computed(() => !isBack.value)
@@ -138,10 +138,9 @@ const curPage = computed(() =>
 const pageLabel = computed(() => {
   if (isMobile.value) return `${mobilePage.value} / ${totalPages.value}`
   if (isCover.value)  return 'Cover'
-  if (isBack.value)   return 'Back Cover'
   const l = (cur.value - 1) * 2 + 2
   const r = l + 1
-  return `${l}${r <= totalPages.value - 1 ? ' – ' + r : ''} / ${totalPages.value}`
+  return `${l}${r <= totalPages.value ? ' – ' + r : ''} / ${totalPages.value}`
 })
 
 const progressPct = computed(() => {
@@ -182,17 +181,15 @@ const scalerStyle = computed(() => ({
 // ── page mapping ──
 function pdfPageFromState(state) {
   if (state === 0) return 1
-  if (state === totalStates.value - 1) return totalPages.value
   return (state - 1) * 2 + 2
 }
 
 // 0 = halaman kosong (blank)
 function pagesForState(state) {
   if (state === 0) return [1]
-  if (state === totalStates.value - 1) return [totalPages.value]
   const l = (state - 1) * 2 + 2
   const r = l + 1
-  return [l, r <= totalPages.value - 1 ? r : 0]
+  return [l, r <= totalPages.value ? r : 0]
 }
 
 // ── mobile detect & fit ──
@@ -340,13 +337,11 @@ async function flip(dir) {
   // apa yang dilukis DI BALIK halaman yang terbang (setelah overlay tampil)
   let underPaint
   if (dir > 0) {
-    underPaint = (next === totalStates.value - 1)
-      ? () => renderToCanvas(0, canvasB.value)           // menuju back cover: kanan jadi kosong
-      : () => renderToCanvas(toPages[1], canvasB.value)  // kanan tujuan
+    underPaint = () => renderToCanvas(toPages[1], canvasB.value)
   } else {
     underPaint = (next === 0)
-      ? () => renderToCanvas(0, canvasA.value)           // menuju cover: kiri jadi kosong
-      : () => renderToCanvas(toPages[0], canvasA.value)  // kiri tujuan
+      ? () => renderToCanvas(0, canvasA.value)
+      : () => renderToCanvas(toPages[0], canvasA.value)
   }
 
   await flipAnimate(dir, frontPg, backPg, underPaint)
