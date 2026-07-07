@@ -82,9 +82,16 @@
       <button @click="flip(-1)" :disabled="curPage <= 1 || busy" class="nav-btn">←</button>
       <div class="page-track">
         <span class="pg-label">{{ pageLabel }}</span>
-        <div class="progress-bar">
-          <div class="progress-fill" :style="{ width: progressPct + '%' }" />
-        </div>
+        <input
+          type="range"
+          class="page-slider"
+          :min="sliderMin"
+          :max="sliderMax"
+          step="1"
+          :value="sliderValue"
+          :disabled="busy"
+          @input="onSlideInput"
+          @change="onSlideCommit" />
       </div>
       <button @click="flip(1)" :disabled="curPage >= totalPages || busy" class="nav-btn">→</button>
     </footer>
@@ -151,6 +158,47 @@ const progressPct = computed(() => {
   return totalStates.value <= 1 ? 100
     : Math.round((cur.value / (totalStates.value - 1)) * 100)
 })
+
+// ── slider ──
+const sliderMin = computed(() => (isMobile.value ? 1 : 0))
+const sliderMax = computed(() =>
+  isMobile.value ? totalPages.value : totalStates.value - 1
+)
+const sliderValue = computed(() =>
+  isMobile.value ? mobilePage.value : cur.value
+)
+
+// guard supaya render tidak tumpang tindih saat drag cepat
+let renderBusy = false, renderQueued = false
+async function safeRenderCurrent() {
+  if (renderBusy) { renderQueued = true; return }
+  renderBusy = true
+  try {
+    await renderCurrent()
+  } finally {
+    renderBusy = false
+    if (renderQueued) {
+      renderQueued = false
+      safeRenderCurrent()
+    }
+  }
+}
+
+let slideTimer = null
+function onSlideInput(e) {
+  const v = +e.target.value
+  // update posisi & label langsung (live saat digeser)
+  if (isMobile.value) mobilePage.value = v
+  else cur.value = v
+  // render di-debounce supaya tidak render tiap piksel geseran
+  clearTimeout(slideTimer)
+  slideTimer = setTimeout(safeRenderCurrent, 120)
+}
+
+function onSlideCommit() {
+  clearTimeout(slideTimer)
+  safeRenderCurrent()
+}
 
 const stageSize = computed(() => ({
   width:  (isMobile.value ? fitW.value : fitW.value * 2) + 'px',
@@ -593,8 +641,55 @@ onUnmounted(() => {
   text-align: center; font-size: 11px; font-style: italic;
   color: rgba(244,245,239,0.3); font-family: 'Playfair Display', serif;
 }
-.progress-bar { height: 1px; background: rgba(244,245,239,0.08); overflow: hidden; }
-.progress-fill { height: 100%; background: rgba(244,245,239,0.3); transition: width 0.3s; }
+/*.progress-bar { height: 1px; background: rgba(244,245,239,0.08); overflow: hidden; }*/
+/*.progress-fill { height: 100%; background: rgba(244,245,239,0.3); transition: width 0.3s; }*/
+
+/* slider halaman */
+.page-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 16px;             /* area sentuh cukup besar untuk jari */
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* track */
+.page-slider::-webkit-slider-runnable-track {
+  height: 2px;
+  background: rgba(244,245,239,0.15);
+}
+.page-slider::-moz-range-track {
+  height: 2px;
+  background: rgba(244,245,239,0.15);
+}
+
+/* thumb */
+.page-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  margin-top: -6px;          /* (14-2)/2 supaya center di track */
+  background: #f4f5ef;
+  border: none;
+  border-radius: 50%;
+  transition: transform 0.15s;
+}
+.page-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: #f4f5ef;
+  border: none;
+  border-radius: 50%;
+  transition: transform 0.15s;
+}
+.page-slider:hover::-webkit-slider-thumb { transform: scale(1.25); }
+.page-slider:hover::-moz-range-thumb     { transform: scale(1.25); }
+
+.page-slider:disabled { opacity: 0.4; cursor: default; }
+
 .center-state {
   flex: 1; display: flex; flex-direction: column;
   align-items: center; justify-content: center;
