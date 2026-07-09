@@ -231,14 +231,17 @@ defineProps({
   padding: 6px 12px;
 }
 
-.stats-row { border-top: 1px solid rgba(22,22,20,0.15); }
-.stat-item {
-  padding: 16px 24px 0 0;
-  margin-right: 24px;
-  border-right: 1px solid rgba(22,22,20,0.12);
-  padding-right: 24px;
+.stats-row {
+  border-top: 1px solid rgba(22,22,20,0.15);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);   /* selalu 4 sebaris */
 }
-.stat-item:last-child { border-right: none; }
+.stat-item {
+  padding: 16px 12px 0 0;
+  border-right: 1px solid rgba(22,22,20,0.12);
+  margin-right: 12px;
+}
+.stat-item:last-child { border-right: none; margin-right: 0; }
 .stat-num {
   font-family: 'VT323', monospace;
   font-size: 2rem;
@@ -344,6 +347,7 @@ defineProps({
   font-family: 'Geist', sans-serif;
   font-size: 0.8rem;
   color: #71717a;
+  white-space: nowrap;   /* ← tambah ini */
 }
 
 /* bar meter */
@@ -405,8 +409,44 @@ defineProps({
 }
 
 /* mobile: sembunyikan bar meter supaya tidak sempit */
+/* mobile: susun 2 baris per sensor row */
 @media (max-width: 640px) {
-  .sensor-row { grid-template-columns: 60px 1fr 90px; }
-  .sr-bars { display: none; }
+  .telemetry-panel { padding: 14px; }
+  .panel-rows      { padding: 8px; }
+  .stat-item  { padding: 12px 8px 0 0; margin-right: 8px; }
+  .stat-num   { font-size: 1.4rem; }
+  .stat-label { font-size: 0.58rem; }
+
+  .sensor-row {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "id    value"
+      "spark spark";
+    gap: 10px 12px;
+    padding: 10px 12px;
+  }
+
+  .sr-id    { grid-area: id; }
+  .sr-value {
+    grid-area: value;
+    justify-content: flex-end;   /* angka rata kanan */
+  }
+  .sr-num   { font-size: 1.9rem; }
+
+  /* bar meter tetap disembunyikan di mobile */
+  .sr-bars  { display: none; }
+
+  /* dots + sparkline pindah ke baris bawah, melebar penuh */
+  .sr-right {
+    grid-area: spark;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  .dot-row  { flex-shrink: 0; gap: 6px; }
+  .sr-spark { flex: 1; height: 12px; width: auto; }
+
+  .panel-head  { gap: 12px; font-size: 0.62rem; }
+  .ticker-text { font-size: 0.7rem; }
 }
 </style>
