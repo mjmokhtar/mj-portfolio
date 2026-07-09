@@ -2,6 +2,7 @@
 import { projectDetails } from '../../data/projectDetails.js'
 import { RouterLink } from 'vue-router'
 import ProjectGallery from '../../components/ProjectGallery.vue'
+import IotShowcaseSection from '../../components/IotShowcaseSection.vue'
 
 const project = projectDetails.atwp
 </script>
@@ -64,6 +65,7 @@ const project = projectDetails.atwp
         </p>
       </div> -->
       <!-- gallery -->
+      <IotShowcaseSection embedded/>
       <ProjectGallery :gallery="project.gallery" />
 
       <!-- rule -->
