@@ -21,8 +21,8 @@ export const meta = {
     left: "Have launched",
     linkLabel: "Toaster Store Gumroad",
     linkUrl: "https://store.mjmokhtar.cloud",
-    right: "Get it on",
-    rightLinkLabel: "GitHub",
-    rightLinkUrl: "https://github.com/mjmokhtar",
+    right: "Documentation",
+    rightLinkLabel: "Docs",
+    rightLinkUrl: "https://docs.mjmokhtar.cloud",
   }
 }
