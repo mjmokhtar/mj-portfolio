@@ -256,11 +256,12 @@ function pinchDist(e) {
 async function renderToCanvas(pageNum, canvas) {
   if (!canvas || !pdfDoc) return
 
-  // halaman kosong
+  const QUALITY_MULTIPLIER = 1.8   // render lebih tinggi dari ukuran tampil, lalu di-downscale browser -> tajam
+
   if (!pageNum) {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2)
-    canvas.width  = Math.round(fitW.value * dpr)
-    canvas.height = Math.round(fitH.value * dpr)
+    const dpr = Math.min(window.devicePixelRatio || 1, 3)
+    canvas.width  = Math.round(fitW.value * dpr * QUALITY_MULTIPLIER)
+    canvas.height = Math.round(fitH.value * dpr * QUALITY_MULTIPLIER)
     canvas.style.width  = '100%'
     canvas.style.height = '100%'
     const ctx = canvas.getContext('2d')
@@ -271,15 +272,20 @@ async function renderToCanvas(pageNum, canvas) {
 
   const page   = await pdfDoc.getPage(pageNum)
   const vp     = page.getViewport({ scale: 1 })
-  const dpr    = Math.min(window.devicePixelRatio || 1, 2)
-  const scale  = (fitH.value / vp.height) * dpr
+  const dpr    = Math.min(window.devicePixelRatio || 1, 3)     // sebelumnya cap di 2
+  const scale  = (fitH.value / vp.height) * dpr * QUALITY_MULTIPLIER   // + supersampling
   const scaled = page.getViewport({ scale })
   canvas.width  = scaled.width
   canvas.height = scaled.height
   canvas.style.width  = '100%'
   canvas.style.height = '100%'
+
+  const ctx = canvas.getContext('2d')
+  ctx.imageSmoothingEnabled = true
+  ctx.imageSmoothingQuality = 'high'
+
   await page.render({
-    canvasContext: canvas.getContext('2d'),
+    canvasContext: ctx,
     viewport: scaled,
   }).promise
 }
