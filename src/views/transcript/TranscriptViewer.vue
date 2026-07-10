@@ -94,7 +94,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
-const API_BASE = 'http://72.62.124.206:9090'
+const API_BASE = 'https://hasil-studi.mjmokhtar.cloud'
 
 
 // ── refs ──
