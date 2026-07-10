@@ -1,18 +1,20 @@
 export const projectDetails = {
   atwp: {
     num: "01.",
-    title: "Industrial IoT Middleware System",
-    tagline: "Converting raw machine protocols into web-consumable data.",
+    title: "IoT System Integration",
+    tagline: "Sensors to cloud — full-stack integration for industrial monitoring.",
     status: "coming-soon",
-    year: "2023 — 2025",
-    role: "Embedded Systems Engineer · Backend Developer",
-    stack: ["Node.js", "Modbus TCP/IP", "UDP", "PostgreSQL", "MySQL", "RESTful API", "Node-RED", "RESTEK"],
+    year: "2023 — Present",
+    role: "IoT System Integrator · Backend Developer",
+    stack: ["Node.js", "Python", "Vue.js", "MySQL", "PostgreSQL", "TimescaleDB", "Modbus TCP/IP", "MQTT", "RESTful API", "Node-RED"],
     sites: ["Jabodebek LRT — ATWP & RFID Train System", "ANTAM POMALA — Industrial Weightbridge"],
     impact: ["99% system uptime", "40% reduction in manual inspection"],
     gallery: [
       { src: "/projects/atwp/atwp-1.png", caption: "github repository" },
       { src: "/projects/atwp/atwp-2.png", caption: "API documentation" },
       { src: "/projects/atwp/atwp-3.png", caption: "Architecture diagram" },
+      { src: "/projects/atwp/atwp-4.png", caption: "Backend architecture" },
+      { src: "/projects/atwp/atwp-5.png", caption: "Mermaid diagram" },
     ],
   },
   epaper: {
@@ -24,7 +26,7 @@ export const projectDetails = {
     role: "Firmware Engineer · Hardware Designer · PM",
     stack: ["ESP32", "SSD1680", "ESP-IDF", "KiCad", "C", "C++"],
     sites: [],
-    impact: ["5-page badge layout", "Custom GFX layer", "10x10cm PCB — JLCPCB ready"],
+    impact: ["5-page badge layout", "Custom GFX layer"],
     gallery: [
       { src: "/projects/epaper/epaper-1.jpg", caption: "PCB design" },
       { src: "/projects/epaper/epaper-2.jpg", caption: "Badge prototype" },

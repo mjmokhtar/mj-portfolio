@@ -3,9 +3,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 export const projects = [
   {
     num: "01.",
-    title: "Industrial IoT Middleware System",
-    description: "Middleware converting raw machine protocols — Modbus, UDP, FTP — into web-consumable data. Deployed across Jabodebek LRT and ANTAM POMALA weightbridge. 99% uptime, 40% reduction in manual inspection.",
-    stack: "Node.js · Modbus TCP/IP · UDP · PostgreSQL · MySQL · RESTful API · Python · Node-RED",   
+    title: "IoT System Integration",
+    description: "End-to-end IoT integration — connecting field sensors and industrial protocols (Modbus, MQTT, UDP) to cloud-based dashboards. Backend, database, and frontend built to fit each deployment's scale and data needs.",
+    stack: "Node.js · Python · Vue.js · MySQL · PostgreSQL · TimescaleDB · Modbus TCP/IP · MQTT · REST API · WebSocket · CoAP",
     url: "/projects/atwp",
     external: false,
   },

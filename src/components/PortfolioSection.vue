@@ -121,6 +121,87 @@ const router = useRouter()
             </svg>
           </div>
         </div>
+        <!-- card 3: transkrip nilai -->
+        <div class="portfolio-card card-teal group cursor-pointer"
+          @click="router.push('/transcript')">
+          <div class="card-dots card-dots-light" />
+          <div class="card-body">
+            <div>
+              <h3 class="card-title">Academic Transcript</h3>
+              <p class="card-desc">Official university transcript — Instrumentation Physics, Lambung Mangkurat University.</p>
+            </div>
+            <button class="card-cta">
+              <span class="cta-arrow">→</span>
+              <span>View Transcript</span>
+            </button>
+          </div>
+          <!-- ilustrasi: dokumen dengan segel -->
+          <div class="card-illo">
+            <svg viewBox="0 0 220 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="72" y="24" width="110" height="140" rx="4" fill="rgba(0,0,0,0.35)"/>
+              <rect x="60" y="12" width="110" height="140" rx="4"
+                fill="#3d4457" stroke="#f4f5ef" stroke-width="2"/>
+              <line x1="74" y1="34" x2="156" y2="34" stroke="rgba(244,245,239,0.6)" stroke-width="2"/>
+              <line x1="74" y1="46" x2="140" y2="46" stroke="rgba(244,245,239,0.3)" stroke-width="1.5"/>
+              <!-- baris nilai: label + grade -->
+              <line x1="74" y1="66" x2="128" y2="66" stroke="rgba(244,245,239,0.35)" stroke-width="1.5"/>
+              <line x1="144" y1="66" x2="156" y2="66" stroke="rgba(244,245,239,0.6)" stroke-width="2"/>
+              <line x1="74" y1="78" x2="122" y2="78" stroke="rgba(244,245,239,0.3)" stroke-width="1.5"/>
+              <line x1="144" y1="78" x2="156" y2="78" stroke="rgba(244,245,239,0.6)" stroke-width="2"/>
+              <line x1="74" y1="90" x2="130" y2="90" stroke="rgba(244,245,239,0.3)" stroke-width="1.5"/>
+              <line x1="144" y1="90" x2="156" y2="90" stroke="rgba(244,245,239,0.6)" stroke-width="2"/>
+              <line x1="74" y1="102" x2="118" y2="102" stroke="rgba(244,245,239,0.25)" stroke-width="1.5"/>
+              <line x1="144" y1="102" x2="156" y2="102" stroke="rgba(244,245,239,0.6)" stroke-width="2"/>
+              <!-- segel wisuda -->
+              <circle cx="92" cy="130" r="14" fill="rgba(244,245,239,0.1)"
+                stroke="rgba(244,245,239,0.5)" stroke-width="1.5"/>
+              <circle cx="92" cy="130" r="8" fill="none"
+                stroke="rgba(244,245,239,0.35)" stroke-width="1"/>
+              <path d="M88 141 L85 152 L92 148 L99 152 L96 141"
+                fill="none" stroke="rgba(244,245,239,0.4)" stroke-width="1.5"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- card 4: main catur -->
+        <a class="portfolio-card card-wine group cursor-pointer"
+          href="https://catur-chess.mjmokhtar.cloud"
+          target="_blank" rel="noopener">
+          <div class="card-dots card-dots-light" />
+          <div class="card-body">
+            <div>
+              <h3 class="card-title">Play Chess</h3>
+              <p class="card-desc">Take a break and sharpen your mind — play a game against the engine.</p>
+            </div>
+            <button class="card-cta">
+              <span class="cta-arrow">→</span>
+              <span>Start a Game</span>
+            </button>
+          </div>
+          <!-- ilustrasi: papan + kuda -->
+          <div class="card-illo">
+            <svg viewBox="0 0 220 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- papan miring -->
+              <g transform="translate(70,40) rotate(-4)">
+                <rect x="0" y="0" width="120" height="120" rx="3"
+                  fill="#4a3d3d" stroke="#f4f5ef" stroke-width="2"/>
+                <g fill="rgba(244,245,239,0.18)">
+                  <rect x="15" y="0"  width="15" height="15"/><rect x="45" y="0"  width="15" height="15"/><rect x="75" y="0"  width="15" height="15"/><rect x="105" y="0" width="15" height="15"/>
+                  <rect x="0"  y="15" width="15" height="15"/><rect x="30" y="15" width="15" height="15"/><rect x="60" y="15" width="15" height="15"/><rect x="90" y="15" width="15" height="15"/>
+                  <rect x="15" y="30" width="15" height="15"/><rect x="45" y="30" width="15" height="15"/><rect x="75" y="30" width="15" height="15"/><rect x="105" y="30" width="15" height="15"/>
+                  <rect x="0"  y="45" width="15" height="15"/><rect x="30" y="45" width="15" height="15"/><rect x="60" y="45" width="15" height="15"/><rect x="90" y="45" width="15" height="15"/>
+                  <rect x="15" y="60" width="15" height="15"/><rect x="45" y="60" width="15" height="15"/><rect x="75" y="60" width="15" height="15"/><rect x="105" y="60" width="15" height="15"/>
+                  <rect x="0"  y="75" width="15" height="15"/><rect x="30" y="75" width="15" height="15"/><rect x="60" y="75" width="15" height="15"/><rect x="90" y="75" width="15" height="15"/>
+                  <rect x="15" y="90" width="15" height="15"/><rect x="45" y="90" width="15" height="15"/><rect x="75" y="90" width="15" height="15"/><rect x="105" y="90" width="15" height="15"/>
+                  <rect x="0"  y="105" width="15" height="15"/><rect x="30" y="105" width="15" height="15"/><rect x="60" y="105" width="15" height="15"/><rect x="90" y="105" width="15" height="15"/>
+                </g>
+              </g>
+              <!-- kuda unicode besar -->
+              <text x="52" y="120" font-size="72" fill="#f4f5ef"
+                style="font-family:serif;" opacity="0.9">♞</text>
+            </svg>
+          </div>
+        </a>
 
       </div>
 
@@ -129,6 +210,7 @@ const router = useRouter()
 </template>
 
 <style scoped>
+
 .portfolio-card {
   position: relative;
   border-radius: 12px;
@@ -144,6 +226,7 @@ const router = useRouter()
   transform: translateY(-2px);
   box-shadow: 0 12px 40px rgba(22,22,20,0.18);
 }
+a.portfolio-card { text-decoration: none; color: inherit; }
 
 /* card kiri — gelap seperti referensi kiri */
 .card-dark {
@@ -153,6 +236,10 @@ const router = useRouter()
 .card-muted {
   background: #1a1f1a;
 }
+
+.card-navy { background: #1a1e2b; }
+.card-wine { background: #241a1a; }
+.card-teal { background: #14232a; }
 
 .card-grain {
   position: absolute;

@@ -19,9 +19,9 @@ export const meta = {
   ],
   footer: {
     left: "Have launched",
-    linkLabel: "Toaster Store Gumroad",
+    linkLabel: "Store Gumroad",
     linkUrl: "https://store.mjmokhtar.cloud",
-    right: "Documentation",
+    right: "Learning",
     rightLinkLabel: "Docs",
     rightLinkUrl: "https://docs.mjmokhtar.cloud",
   }
