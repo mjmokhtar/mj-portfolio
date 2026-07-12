@@ -203,6 +203,100 @@ const router = useRouter()
           </div>
         </a>
 
+        <!-- card 5: store -->
+        <a class="portfolio-card card-amber group cursor-pointer"
+          href="https://store.mjmokhtar.cloud"
+          target="_blank" rel="noopener">
+          <div class="card-dots card-dots-light" />
+          <div class="card-body">
+            <div>
+              <h3 class="card-title">Digital Store</h3>
+              <p class="card-desc">Templates, guides, and digital products on physics, IoT, and project management.</p>
+            </div>
+            <button class="card-cta">
+              <span class="cta-arrow">→</span>
+              <span>Visit Store</span>
+            </button>
+          </div>
+          <!-- ilustrasi: etalase toko -->
+          <div class="card-illo">
+            <svg viewBox="0 0 220 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- shadow -->
+              <rect x="66" y="66" width="120" height="86" rx="4" fill="rgba(0,0,0,0.35)"/>
+              <!-- badan toko -->
+              <rect x="56" y="56" width="120" height="86" rx="4"
+                fill="#4d3f2a" stroke="#f4f5ef" stroke-width="2"/>
+              <!-- awning bergelombang -->
+              <path d="M50 56 L182 56 L176 34 L56 34 Z"
+                fill="#5a4a30" stroke="#f4f5ef" stroke-width="2"/>
+              <path d="M56 56 Q63 66 70 56 Q77 66 84 56 Q91 66 98 56 Q105 66 112 56 Q119 66 126 56 Q133 66 140 56 Q147 66 154 56 Q161 66 168 56 Q172 66 176 56"
+                fill="rgba(244,245,239,0.15)" stroke="#f4f5ef" stroke-width="1.5"/>
+              <!-- pintu -->
+              <rect x="72" y="94" width="30" height="48" rx="2"
+                fill="rgba(244,245,239,0.1)" stroke="rgba(244,245,239,0.5)" stroke-width="1.5"/>
+              <!-- jendela display -->
+              <rect x="116" y="94" width="46" height="30" rx="2"
+                fill="rgba(244,245,239,0.14)" stroke="rgba(244,245,239,0.5)" stroke-width="1.5"/>
+              <!-- price tag gantung -->
+              <g transform="rotate(8 148 78)">
+                <path d="M138 70 L158 70 L164 78 L158 86 L138 86 Z"
+                  fill="#d8e34e" opacity="0.9" stroke="#f4f5ef" stroke-width="1.5"/>
+                <circle cx="158" cy="78" r="2" fill="#4d3f2a"/>
+              </g>
+            </svg>
+          </div>
+        </a>
+
+        <!-- card 6: jutsu scrolls (repo collection) -->
+        <div class="portfolio-card card-scroll group cursor-pointer"
+          @click="router.push('/scrolls')">
+          <div class="card-dots card-dots-light" />
+          <div class="card-body">
+            <div>
+              <h3 class="card-title">Jutsu Scrolls</h3>
+              <p class="card-desc">Open-source techniques — firmware examples, drivers, and experiments, sealed in scrolls.</p>
+            </div>
+            <button class="card-cta">
+              <span class="cta-arrow">→</span>
+              <span>Unroll the Scrolls</span>
+            </button>
+          </div>
+          <!-- ilustrasi: gulungan ninja terbuka -->
+          <div class="card-illo">
+            <svg viewBox="0 0 220 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- shadow -->
+              <g transform="translate(10,10)" opacity="0.35">
+                <rect x="40" y="50" width="140" height="70" fill="#000"/>
+              </g>
+              <!-- kertas gulungan terbentang -->
+              <rect x="40" y="50" width="140" height="70"
+                fill="#3a3230" stroke="#f4f5ef" stroke-width="2"/>
+              <!-- gulungan kiri (roll) -->
+              <rect x="26" y="42" width="18" height="86" rx="9"
+                fill="#8a2f24" stroke="#f4f5ef" stroke-width="2"/>
+              <circle cx="35" cy="42" r="5" fill="#f4f5ef" opacity="0.85"/>
+              <circle cx="35" cy="128" r="5" fill="#f4f5ef" opacity="0.85"/>
+              <!-- gulungan kanan (roll) -->
+              <rect x="176" y="42" width="18" height="86" rx="9"
+                fill="#8a2f24" stroke="#f4f5ef" stroke-width="2"/>
+              <circle cx="185" cy="42" r="5" fill="#f4f5ef" opacity="0.85"/>
+              <circle cx="185" cy="128" r="5" fill="#f4f5ef" opacity="0.85"/>
+              <!-- "kanji" kode: kurung siku + baris -->
+              <text x="58" y="82" font-size="26" fill="rgba(244,245,239,0.8)"
+                style="font-family:monospace;">&lt;/&gt;</text>
+              <line x1="58" y1="96" x2="128" y2="96" stroke="rgba(244,245,239,0.4)" stroke-width="1.5"/>
+              <line x1="58" y1="106" x2="116" y2="106" stroke="rgba(244,245,239,0.3)" stroke-width="1.5"/>
+              <!-- lingkaran segel (fuin) -->
+              <circle cx="150" cy="85" r="17" fill="none"
+                stroke="rgba(244,245,239,0.5)" stroke-width="1.5"/>
+              <circle cx="150" cy="85" r="10" fill="none"
+                stroke="rgba(244,245,239,0.3)" stroke-width="1"
+                stroke-dasharray="3 3"/>
+              <circle cx="150" cy="85" r="3" fill="#d8e34e" opacity="0.85"/>
+            </svg>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -240,6 +334,8 @@ a.portfolio-card { text-decoration: none; color: inherit; }
 .card-navy { background: #1a1e2b; }
 .card-wine { background: #241a1a; }
 .card-teal { background: #14232a; }
+.card-amber  { background: #241e12; }   /* store — coklat amber gelap */
+.card-scroll { background: #3f2535; }   /* scrolls — merah bata gelap ala gulungan */
 
 .card-grain {
   position: absolute;
