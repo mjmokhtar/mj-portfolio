@@ -36,6 +36,11 @@ const routes = [
     path: '/transcript',
     name: 'transcript',
     component: () => import('../views/transcript/TranscriptViewer.vue'),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () => import('../views/NotFoundView.vue'),
   }
 ]
 
