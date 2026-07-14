@@ -6,18 +6,12 @@ import { meta } from '../data/meta.js'
   <section class="bg-primary">
 
     <!-- Name SVG full width -->
-    <div class="px-8 max-w-7xl mx-auto pt-12"
-      data-aos="fade-up"
-      data-aos-duration="2000">
-      <svg
-        viewBox="0 0 1000 160"
-        xmlns="http://www.w3.org/2000/svg"
+    <div class="px-8 max-w-7xl mx-auto pt-12 hero-name"
+      data-aos="fade-up" data-aos-duration="2000">
+      <svg viewBox="0 0 1000 160" xmlns="http://www.w3.org/2000/svg"
         style="width:100%;display:block;">
         <text
-          x="0"
-          y="130"
-          font-family="Geist, sans-serif"
-          font-weight="900"
+          x="0" y="130"
           font-size="155"
           fill="#161614"
           textLength="1000"
@@ -119,5 +113,15 @@ import { meta } from '../data/meta.js'
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.2; }
+}
+
+.hero-name svg text {
+  font-family: 'Geist', sans-serif;
+  font-weight: 900;
+  cursor: crosshair;
+}
+.hero-name:hover svg text {
+  font-family: 'Departure Mono', monospace;
+  font-weight: 400;
 }
 </style>

@@ -7,6 +7,8 @@ import FeaturedSection from '../components/FeaturedSection.vue'
 import PortfolioSection from '../components/PortfolioSection.vue'  
 import DitherSection from '../components/DitherSection.vue'
 import HumanMadeSection from '../components/HumanMadeSection.vue'
+import MissionReportSection from '../components/MissionReportSection.vue'
+import CoverLetterSection from '../components/CoverLetterSection.vue'
 </script>
 
 <template>
@@ -14,9 +16,11 @@ import HumanMadeSection from '../components/HumanMadeSection.vue'
     <HeroSection />
     <DitherSection />
     <IntroSection />
+    <CoverLetterSection />
     <PortfolioSection />   
     <ProjectsSection />
     <TestimonialsSection />
+    <MissionReportSection />
     <HumanMadeSection />   
     <FeaturedSection />
   </main>
