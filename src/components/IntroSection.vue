@@ -46,6 +46,17 @@ import { meta } from '../data/meta.js'
           {{ meta.bio.closing }}
         </p>
       </div>
+      <div
+        class="mt-12 lg:mt-12"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        data-aos-delay="250">
+        <img
+          src="/index-node-map-removebg.png"
+          alt="Index node map"
+          class="w-full h-auto object-cover"
+        />
+      </div>
     </div>
 
   </section>
