@@ -37,7 +37,7 @@ for (let y = 0; y < BROWS; y++) {
     </div>
 
     <!-- stage -->
-    <div class="cl-stage">
+    <div class="cl-stage" data-aos="fade-up" data-aos-duration="1200">
       <div class="cl-max">
 
         <!-- ═══ #letter : grid 155px | 1fr, persis aslinya ═══ -->

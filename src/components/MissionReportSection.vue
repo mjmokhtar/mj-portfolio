@@ -59,7 +59,7 @@ c) Prepare follow-up interviews with equipment designed to verify
     </div>
 
     <!-- stage gelap -->
-    <div class="mr-stage">
+    <div class="mr-stage" data-aos="fade-up" data-aos-duration="1200">
       <div class="mr-max">
 
         <!-- dekorasi: SQL oranye, sebagian di balik kertas -->
