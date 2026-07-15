@@ -52,7 +52,7 @@ import { meta } from '../data/meta.js'
         data-aos-duration="3000"
         data-aos-delay="250">
         <img
-          src="/index-node-map-removebg.png"
+          src="/map.png"
           alt="Index node map"
           class="w-full h-auto object-cover"
         />
