@@ -3,30 +3,126 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- Primary -->
-    <title>MJ Mokhtar</title>
-    <meta name="description" content="Embedded Systems & IoT Engineer based in Djakarta, Indonesia." />
+    <title>Embedded Systems & IoT Engineer in Djakarta | MJ Mokhtar</title>
+    <meta name="description" content="Embedded systems & IoT engineer in Djakarta. Firmware, industrial protocols (Modbus, MQTT, CAN), and end-to-end delivery for railway monitoring systems." />
     <meta name="author" content="Muhammad Jumi'at Mokhtar" />
     <meta name="keywords" content="embedded systems, IoT, firmware, ESP32, STM32, Node.js, product manager, Djakarta, Indonesia" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://mjmokhtar.cloud/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mjmokhtar.cloud/" />
-    <meta property="og:title" content="Muhammad Jumi'at Mokhtar — Embedded Systems & IoT Engineer" />
-    <meta property="og:description" content="Embedded Systems & IoT Engineer based in Djakarta, Indonesia." />
-    <meta property="og:image" content="https://mjmokhtar.netlify.app/assets/img/about.jpg" />
+    <meta property="og:title" content="Embedded Systems & IoT Engineer in Djakarta | MJ Mokhtar" />
+    <meta property="og:description" content="Firmware, industrial protocols, and end-to-end IoT delivery for railway and industrial monitoring systems." />
+    <meta property="og:image" content="https://mjmokhtar.cloud/og/og-home.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Embedded Systems & IoT Engineer in Djakarta | MJ Mokhtar" />
+    <meta name="twitter:description" content="Firmware, industrial protocols, and end-to-end IoT delivery for railway and industrial monitoring." />
+    <meta name="twitter:image" content="https://mjmokhtar.cloud/og/og-home.png" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Muhammad Jumi'at Mokhtar",
+      "alternateName": "MJ Mokhtar",
+      "jobTitle": "Embedded Systems & IoT Engineer",
+      "url": "https://mjmokhtar.cloud",
+      "sameAs": ["https://github.com/mjmokhtar"],
+      "address": { "@type": "PostalAddress", "addressLocality": "Djakarta", "addressCountry": "ID" }
+    }
+    </script>
+
+    <!-- Fonts & assets -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="preload" href="/fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Styling fallback #app — hanya terlihat sebelum Vue mount -->
+    <style>
+      #app > .boot {
+        min-height: 100vh;
+        background: #f4f5ef;
+        color: #161614;
+        font-family: Geist, sans-serif;
+        max-width: 44rem;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        line-height: 1.7;
+      }
+      #app > .boot h1 {
+        font-size: 1.4rem;
+        font-weight: 900;
+        letter-spacing: -0.01em;
+        border-bottom: 2px solid #161614;
+        padding-bottom: 0.75rem;
+      }
+      #app > .boot h2 {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        opacity: 0.5;
+        margin-top: 2.2rem;
+      }
+      #app > .boot p,
+      #app > .boot li { font-size: 0.9rem; }
+      #app > .boot ul { list-style: none; padding: 0; }
+      #app > .boot li { margin: 0.35rem 0; }
+      #app > .boot a { color: #161614; text-underline-offset: 3px; }
+      #app > .boot a:hover { opacity: 0.6; }
+      #app > .boot small { opacity: 0.5; }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <!-- Fallback statis: terbaca crawler, diganti Vue saat mount -->
+      <div class="boot">
+        <h1>MJ Mokhtar — Embedded Systems &amp; IoT Engineer, Djakarta</h1>
+        <p>I'm a self-taught embedded systems and IoT engineer who enjoys
+        mengoprek — hacking, building, and shipping monitoring systems that
+        run 24/7. My work spans firmware (ESP32, STM32, AVR), industrial
+        protocols (Modbus TCP/IP, MQTT, CAN bus), backend services, and
+        real-time dashboards deployed across railway and industrial sites
+        in Indonesia, including 50+ train units on live rail lines.</p>
+
+        <h2>Selected Work</h2>
+        <ul>
+          <li><a href="/projects/atwp">IoT System Integration — sensors to cloud for railway and industry</a></li>
+          <li><a href="/projects/epaper">ePaper Conference Badge — custom hardware and firmware</a></li>
+          <li><a href="/projects/running-text">Running Text LED — ESP32 controllers on 50+ train units</a></li>
+          <li><a href="/scrolls">Open-source firmware examples (ESP32, AVR, STM32)</a></li>
+        </ul>
+
+        <h2>Documents</h2>
+        <ul>
+          <li><a href="/portfolio">Interactive portfolio book</a></li>
+          <li><a href="/transcript">Academic transcript</a></li>
+        </ul>
+
+        <h2>Elsewhere</h2>
+        <p>
+          <a href="https://github.com/mjmokhtar" rel="me">GitHub</a> ·
+          <a href="https://store.mjmokhtar.cloud">Digital store</a> ·
+          <a href="https://cv-ats.mjmokhtar.cloud">ATS résumé</a> ·
+          <a href="https://catur-chess.mjmokhtar.cloud">Play chess</a>
+        </p>
+
+        <p><small>Djakarta, Indonesia · Last updated <time datetime="2026-07-17">July 2026</time></small></p>
+      </div>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
