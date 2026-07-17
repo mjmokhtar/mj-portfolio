@@ -65,7 +65,7 @@ import { meta } from '../data/meta.js'
           <div class="mm-label">
             ░ CURRENT LOCATION<br>
             DJAKARTA, ID<br>
-            6.2°S&nbsp;106.8°E
+            6°12'00"S&nbsp;106°49'00"E
           </div>
         </div>
       </div>
