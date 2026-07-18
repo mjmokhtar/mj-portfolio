@@ -6,52 +6,52 @@ defineProps({ embedded: { type: Boolean, default: false } })
 const levels = [
   {
     n: 0, name: 'Maker', formula: 'digitalWrite(LED_BUILTIN, HIGH)',
-    desc: 'Mengenal embedded', cat: 'Foundation & frameworks', color: '#d98d83',
-    ciri: 'Arduino Uno/Nano, library siap pakai. Belum tahu apa yang terjadi di balik digitalWrite().',
-    fokus: 'Rasa penasaran — bongkar satu library dan baca isinya.',
-    saran: 'Coba satu peripheral tanpa library: kedipkan LED lewat register.',
+    desc: 'Getting into embedded', cat: 'Foundation & frameworks', color: '#d98d83',
+    ciri: 'Arduino Uno/Nano with ready-made libraries. No idea yet what happens behind digitalWrite().',
+    fokus: 'Curiosity — crack open one library and read what it actually does.',
+    saran: 'Drive one peripheral without a library: blink an LED straight from the registers.',
   },
   {
     n: 1, name: 'Framework User', formula: 'UART · SPI · I2C · Interrupt',
-    desc: 'Menguasai peripheral', cat: 'Foundation & frameworks', color: '#dba36a',
-    ciri: 'Arduino framework di board profesional (AVR, ESP32, STM32). Peripheral dasar sudah jalan.',
-    fokus: 'Protokol komunikasi dan interrupt — bukan cuma loop().',
-    saran: 'Pindahkan satu project ke framework resmi vendor (HAL / ESP-IDF).',
+    desc: 'Mastering peripherals', cat: 'Foundation & frameworks', color: '#dba36a',
+    ciri: 'Arduino framework on serious boards (AVR, ESP32, STM32). Core peripherals up and running.',
+    fokus: 'Communication protocols and interrupts — life beyond loop().',
+    saran: 'Port one project to the vendor framework (STM32 HAL / ESP-IDF).',
   },
   {
     n: 2, name: 'HAL Engineer', formula: 'HAL_UART_Transmit(...)',
-    desc: 'Memahami HAL', cat: 'Foundation & frameworks', color: '#d9c069',
-    ciri: 'STM32 HAL, ESP-IDF, Pico SDK. Sudah membaca Reference Manual.',
-    fokus: 'Memahami apa yang HAL sembunyikan: clock, register, konfigurasi.',
-    saran: 'Tulis ulang satu driver HAL langsung ke register (bare metal).',
+    desc: 'Understanding the HAL', cat: 'Foundation & frameworks', color: '#d9c069',
+    ciri: 'STM32 HAL, ESP-IDF, Pico SDK. Reads the Reference Manual, not just tutorials.',
+    fokus: 'Seeing what the HAL hides: clocks, registers, configuration.',
+    saran: 'Rewrite one HAL driver straight against the registers — go bare metal.',
   },
   {
     n: 3, name: 'Bare Metal Engineer', formula: 'USART1->CR1 |= USART_CR1_TE',
     desc: 'Register programming, CMSIS', cat: 'Internals & control', color: '#adc16f',
-    ciri: 'Tidak bergantung HAL. Paham clock tree, RCC, interrupt vector, DMA, linker, startup file.',
-    fokus: 'Kontrol penuh atas silicon — setiap byte punya alasan.',
-    saran: 'Firmware mulai kompleks? Saatnya belajar penjadwalan: masuk RTOS.',
+    ciri: 'No HAL required. Understands the clock tree, RCC, interrupt vectors, DMA, linker scripts, startup files.',
+    fokus: 'Full control of the silicon — every byte has a reason.',
+    saran: 'Firmware getting complex? Time to learn scheduling: enter the RTOS.',
   },
   {
     n: 4, name: 'RTOS Engineer', formula: 'Task → Queue → Task',
     desc: 'FreeRTOS, Zephyr, ThreadX', cat: 'Internals & control', color: '#9bbd72',
-    ciri: 'Firmware profesional multi-task: sensor → queue → MQTT → display. Paham priority & deadlock.',
-    fokus: 'Concurrency, timing, dan resource sharing yang benar.',
-    saran: 'Rancang layer: pisahkan application dari driver — menuju arsitektur.',
+    ciri: 'Professional multi-task firmware: sensor → queue → MQTT → display. Fluent in priorities and deadlocks.',
+    fokus: 'Concurrency, timing, and resource sharing done right.',
+    saran: 'Design in layers: split application from drivers — the road to architecture.',
   },
   {
     n: 5, name: 'Embedded Architect', formula: 'App → Service → Driver → HAL → MCU',
     desc: 'BSP, driver framework, CI/CD', cat: 'Architecture & creation', color: '#83bfae',
-    ciri: 'Membuat framework sendiri. Project bisa pindah STM32 → ESP32 → RP2040 hanya ganti HAL.',
-    fokus: 'Portabilitas, testability, dan umur panjang codebase.',
-    saran: 'Buat sesuatu yang dipakai engineer lain: component, BSP, tools.',
+    ciri: 'Builds their own framework. Projects move STM32 → ESP32 → RP2040 by swapping only the HAL.',
+    fokus: 'Portability, testability, and a codebase that ages well.',
+    saran: 'Build something other engineers use: a component, a BSP, tooling.',
   },
   {
     n: 6, name: 'Platform Creator', formula: 'RTOS · SDK · Compiler · Bootloader',
-    desc: 'Membuat platform sendiri', cat: 'Architecture & creation', color: '#8fb6d9',
-    ciri: 'Membuat Arduino core, ESP-IDF component, RTOS, compiler, atau framework open source.',
-    fokus: 'Level orang yang karyanya menjadi fondasi engineer lain.',
-    saran: 'Sudah di puncak abstraksi — sekarang bagikan: dokumentasi & komunitas.',
+    desc: 'Building the platform itself', cat: 'Architecture & creation', color: '#8fb6d9',
+    ciri: 'Creates Arduino cores, ESP-IDF components, an RTOS, a compiler, or an open-source framework.',
+    fokus: 'The level where your work becomes other engineers\' foundation.',
+    saran: 'Top of the abstraction ladder — now share it: docs and community.',
   },
 ]
 
@@ -89,7 +89,7 @@ function cardStyle(i) {
 
       <!-- ═══ tabel level ═══ -->
       <div class="lv-table" data-aos="fade-up" data-aos-duration="1500">
-        <div class="lv-head">Level Embedded Engineer</div>
+        <div class="lv-head">Embedded Engineer Levels</div>
         <div v-for="l in levels" :key="l.n" class="lv-row">
           <div class="lv-cell-level" :style="{ background: l.color }">
             Level {{ l.n }}
@@ -110,11 +110,11 @@ function cardStyle(i) {
       <!-- ═══ carousel kartu kipas ═══ -->
       <div class="fan-block" data-aos="fade-up" data-aos-duration="2000">
         <h3 class="fan-title">
-          Level "maker" tapi ngakunya level "RTOS engineer"?
+            Level "maker" but self claiming level "RTOS engineer"?
         </h3>
         <p class="fan-sub">
-          Yang naik level bukan board-nya —<br>
-          tapi cara berpikir engineer di baliknya.
+            It's not the board that levels up —<br>
+            it's the engineer's way of thinking behind it.
         </p>
 
         <div class="fan-stage">
@@ -124,13 +124,13 @@ function cardStyle(i) {
             @click="active = i">
             <span class="fc-pill">Level {{ l.n }} · {{ l.name }}</span>
             <div class="fc-panel">
-              <p class="fc-label">Ciri-ciri</p>
+              <p class="fc-label">Traits</p>
               <p class="fc-text">{{ l.ciri }}</p>
-              <p class="fc-label">Fokusmu</p>
+              <p class="fc-label">Your focus</p>
               <p class="fc-text">{{ l.fokus }}</p>
-              <p class="fc-label">Contoh</p>
+              <p class="fc-label">Example</p>
               <p class="fc-code">{{ l.formula }}</p>
-              <p class="fc-label">Saran untuk naik level</p>
+              <p class="fc-label">How to level up</p>
               <p class="fc-text">{{ l.saran }}</p>
             </div>
           </article>
@@ -138,11 +138,11 @@ function cardStyle(i) {
 
         <!-- kontrol -->
         <div class="fan-nav">
-          <button class="fn-btn" @click="prev" aria-label="Level sebelumnya">‹</button>
+          <button class="fn-btn" @click="prev" aria-label="Previous level">‹</button>
           <span v-for="(l, i) in levels" :key="l.n"
             class="fn-dot" :class="{ on: i === active }"
             @click="active = i" />
-          <button class="fn-btn" @click="next" aria-label="Level berikutnya">›</button>
+          <button class="fn-btn" @click="next" aria-label="Next level">›</button>
         </div>
       </div>
 
