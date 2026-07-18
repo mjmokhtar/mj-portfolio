@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import FavRepoSection from '../components/FavRepoSection.vue'
+import EngineerLevelsSection from '../components/EngineerLevelsSection.vue'
 </script>
 
 <template>
@@ -51,6 +52,12 @@ import FavRepoSection from '../components/FavRepoSection.vue'
       </div>
 
       <!-- rule -->
+      <div class="h-0.5 bg-secondary"></div>
+
+      <!-- engineer levels -->
+      <EngineerLevelsSection embedded />
+
+       <!-- rule -->
       <div class="h-0.5 bg-secondary"></div>
 
       <!-- repo cards -->
