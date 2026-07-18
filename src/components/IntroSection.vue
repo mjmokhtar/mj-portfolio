@@ -11,10 +11,9 @@ import { meta } from '../data/meta.js'
     <div class="px-8 max-w-7xl mx-auto py-6 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-4 text-secondary gap-6">
         <!-- big lead -->
-        <p class="lg:col-span-3 lg:text-5xl text-3xl indent-32"
+        <p class="lg:col-span-3 lg:text-5xl text-3xl indent-32 swap-bootzy lg: mt-10 lg:mb-10"
           style="font-family:'Playfair Display',serif;font-weight:700;line-height:1.3;"
-          data-aos="fade-up"
-          data-aos-duration="2000">
+          data-aos="fade-up" data-aos-duration="2000">
           {{ meta.bio.lead }}
         </p>
         <!-- available line -->
@@ -28,23 +27,27 @@ import { meta } from '../data/meta.js'
           </a>
         </p>
         <!-- right col -->
-        <p class="lg:col-start-4 leading-relaxed text-base"
-          data-aos="fade-up"
-          data-aos-duration="2500">
+        <p class="lg:col-start-4 leading-relaxed text-base swap-grotesque"
+          data-aos="fade-up" data-aos-duration="2500">
           {{ meta.bio.p2 }}
         </p>
-        <p class="lg:col-start-4 leading-relaxed text-base"
-          data-aos="fade-up"
-          data-aos-duration="3000">
+        <p class="lg:col-start-4 leading-relaxed text-base swap-dmmono"
+          data-aos="fade-up" data-aos-duration="3000">
           {{ meta.bio.p3 }}
         </p>
+        <div class="lg:col-start-1 lg:col-span-1 flex items-end justify-center lg:center"
+          data-aos="fade-up" data-aos-duration="3000">
+          <div class="intro-illo">
+            <img src="/intro.png"
+              alt="Ilustrasi seseorang membaca buku di atas tumpukan buku"
+              style="mix-blend-mode: multiply;" />
+          </div>
+        </div>
         <!-- big closing -->
-        <p class="lg:col-span-3 lg:col-start-2 lg:text-7xl text-3xl indent-32 lg:mt-48"
+        <p class="lg:col-span-3 lg:col-start-2 lg:text-7xl text-3xl indent-32 lg:mt-16 swap-broadsheet"
           style="font-family:'Playfair Display',serif;font-weight:700;line-height:1.1;"
-          data-aos="fade-up"
-          data-aos-duration="3000">
-          {{ meta.bio.closing }}
-        </p>
+          data-aos="fade-up" data-aos-duration="3000"
+          v-html="meta.bio.closing" />
       </div>
       <div
         class="mt-12 lg:mt-12 map-wrap"
@@ -184,6 +187,65 @@ import { meta } from '../data/meta.js'
   background: #161614;
 }
 
+/* ── font swap saat hover ── */
+.swap-bootzy, .swap-grotesque, .swap-dmmono, .swap-broadsheet {
+  cursor: crosshair;
+}
+
+.swap-bootzy:hover {
+  font-family: var(--font-bootzy) !important;
+  font-weight: 700 !important;
+  /* font-size: 60px; */
+}
+
+.swap-grotesque:hover {
+  font-family: var(--font-grotesque);
+  font-weight: 500;
+  font-size: 1.25rem;      /* DG x-height kecil — dikompensasi sedikit */
+  line-height: 1.28;
+}
+
+.swap-dmmono:hover {
+  font-family: var(--font-dm-mono);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 0.85rem;      /* DM Mono lebih lebar — dikecilkan sedikit */
+}
+
+.swap-broadsheet:hover {
+  font-family: var(--font-broadsheet) !important;
+  font-weight: 600 !important;   /* Broadsheet hanya punya regular */
+  /* font-size: 84px; */
+}
+
+/* kata kunci: tegak secara default, italic hanya saat Broadsheet aktif */
+.swap-broadsheet :deep(.sw) { font-style: normal; }
+.swap-broadsheet:hover :deep(.sw) { font-style: italic; }
+
+.intro-illo {
+  width: 240px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;   /* figur di tengah kanvas → slice tengah yang tampil */
+}
+.intro-illo img {
+  height: 360px;
+  width: auto;
+  max-width: none;           /* penting: lepas batas lebar Tailwind */
+}
+
+/* ukuran khusus desktop */
+@media (min-width: 1024px) {
+  .swap-bootzy:hover     { 
+    font-size: 60px; 
+    line-height: 1.04 !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
+  }
+  .swap-broadsheet:hover { 
+    font-size: 85px; 
+    line-height: 79.2px !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
+  }
+}
+
 @media (max-width: 640px) {
   .mm-label {
     font-size: 7.5px;
@@ -194,6 +256,20 @@ import { meta } from '../data/meta.js'
   @keyframes mm-ping {
     0%   { width: 6px;  height: 6px;  opacity: 0.9; }
     100% { width: 34px; height: 34px; opacity: 0; }
+  }
+  .swap-bootzy:hover     { 
+    font-size: 40px; 
+    line-height: 1.04 !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
+  }
+  .swap-broadsheet:hover { 
+    font-size: 35px; 
+    /* line-height: 1.05 !important;   */
+  }
+  .swap-dmmono:hover {
+    font-family: var(--font-dm-mono);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 0.88rem;      /* DM Mono lebih lebar — dikecilkan sedikit */
   }
 }
 </style>

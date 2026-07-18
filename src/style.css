@@ -4,6 +4,10 @@
   --font-sans: Geist, sans-serif;
   --color-primary: #f4f5ef;
   --color-secondary: #161614;
+  --font-broadsheet: 'Broadsheet', 'Playfair Display', serif;
+  --font-bootzy: 'Bootzy', cursive;
+  --font-dm-mono: 'DM Mono', monospace;
+  --font-grotesque: 'Darker Grotesque', sans-serif;
 }
 
 * {
@@ -19,5 +23,27 @@
   font-family: 'Departure Mono';
   src: url('/fonts/DepartureMono-Regular.woff2') format('woff2');
   font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Broadsheet';
+  src: url('/fonts/Broadsheet-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Broadsheet';
+  src: url('/fonts/Broadsheet-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Bootzy';
+  src: url('/fonts/BootzyTM.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
