@@ -62,23 +62,51 @@ const catTint = {
 }
 
 // ── carousel ──
+// ── carousel ──
 const active = ref(1)
 const prev = () => { active.value = (active.value + levels.length - 1) % levels.length }
 const next = () => { active.value = (active.value + 1) % levels.length }
 
+// ── drag / swipe ──
+const dragX = ref(0)
+const dragging = ref(false)
+let startX = 0
+
+function onDown(e) {
+  dragging.value = true
+  startX = e.clientX
+  dragX.value = 0
+}
+function onMove(e) {
+  if (!dragging.value) return
+  dragX.value = e.clientX - startX
+}
+function onUp() {
+  if (!dragging.value) return
+  dragging.value = false
+  const THRESHOLD = 60
+  if (dragX.value <= -THRESHOLD) next()
+  else if (dragX.value >= THRESHOLD) prev()
+  dragX.value = 0
+}
+
 function cardStyle(i) {
   let d = i - active.value
-  // jarak melingkar terpendek supaya kipas seimbang kiri-kanan
   if (d > levels.length / 2) d -= levels.length
   if (d < -levels.length / 2) d += levels.length
   const abs = Math.abs(d)
+
+  // di luar jarak 2: hilang total, tidak ada yang terpotong di tepi
+  const hidden = abs > 2
+
   return {
-    transform: `translateX(calc(${d} * var(--fan-gap))) rotate(${d * 9}deg) scale(${1 - abs * 0.07})`,
+    transform: `translateX(calc(${d} * var(--fan-gap) + ${dragging.value ? dragX.value : 0}px)) rotate(${d * 9}deg) scale(${1 - abs * 0.07})`,
     zIndex: 10 - abs,
-    opacity: abs > 3 ? 0 : 1 - abs * 0.13,
+    opacity: hidden ? 0 : 1 - abs * 0.25,
     filter: abs === 0 ? 'none' : `blur(${abs * 0.6}px)`,
     background: levels[i].color,
-    pointerEvents: abs > 3 ? 'none' : 'auto',
+    pointerEvents: hidden ? 'none' : 'auto',
+    transition: dragging.value ? 'none' : undefined,   // ikut jari saat drag
   }
 }
 </script>
@@ -117,7 +145,11 @@ function cardStyle(i) {
             it's the engineer's way of thinking behind it.
         </p>
 
-        <div class="fan-stage">
+        <div class="fan-stage"
+          @pointerdown="onDown"
+          @pointermove="onMove"
+          @pointerup="onUp"
+          @pointerleave="onUp">
           <article v-for="(l, i) in levels" :key="l.n"
             class="fan-card"
             :style="cardStyle(i)"
@@ -238,7 +270,11 @@ function cardStyle(i) {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;      /* horizontal utk carousel, vertikal tetap scroll halaman */
+  user-select: none;
 }
+.fan-stage:active { cursor: grabbing; }
 .fan-card {
   position: absolute;
   width: 330px;
@@ -250,6 +286,7 @@ function cardStyle(i) {
   cursor: pointer;
   transform-origin: 50% 130%;   /* pivot di bawah kartu → mengipas natural */
   text-align: center;
+  -webkit-user-drag: none;
 }
 .fc-pill {
   display: inline-block;
