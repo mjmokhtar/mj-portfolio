@@ -178,8 +178,8 @@ function cardStyle(i) {
           @pointerleave="onUp">
           <article v-for="(l, i) in levels" :key="l.n"
             class="fan-card"
-            :style="cardStyle(i)"
-            @click="onCardClick(i)">
+            :data-idx="i"
+            :style="cardStyle(i)">
             <span class="fc-pill">Level {{ l.n }} · {{ l.name }}</span>
             <div class="fc-panel">
               <p class="fc-label">Traits</p>
