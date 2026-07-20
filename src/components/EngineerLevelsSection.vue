@@ -78,27 +78,34 @@ function onDown(e) {
   moved = false
   startX = e.clientX
   dragFrac.value = 0
-  // baca gap aktual dari CSS var (150 desktop / 78 mobile)
   const gap = parseFloat(
     getComputedStyle(e.currentTarget).getPropertyValue('--fan-gap')
   )
   if (gap) fanGap = gap
-  e.currentTarget.setPointerCapture?.(e.pointerId)
+  // TIDAK ada setPointerCapture — itu sumber masalahnya
 }
 
 function onMove(e) {
   if (!dragging.value) return
   const dx = e.clientX - startX
-  if (Math.abs(dx) > 5) moved = true
-  dragFrac.value = -dx / fanGap          // kanan→kiri = maju satu kartu per gap
+  if (Math.abs(dx) > 6) moved = true
+  dragFrac.value = -dx / fanGap
 }
 
-function onUp() {
+function onUp(e) {
   if (!dragging.value) return
   dragging.value = false
   const n = levels.length
-  const target = Math.round(active.value + dragFrac.value)   // snap terdekat
-  active.value = ((target % n) + n) % n
+
+  if (moved) {
+    // geser → snap ke kartu terdekat
+    const target = Math.round(active.value + dragFrac.value)
+    active.value = ((target % n) + n) % n
+  } else {
+    // tanpa gerakan = klik → pilih kartu di bawah pointer
+    const card = e.target.closest?.('.fan-card')
+    if (card) active.value = +card.dataset.idx
+  }
   dragFrac.value = 0
 }
 
