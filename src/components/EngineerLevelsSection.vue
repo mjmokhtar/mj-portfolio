@@ -67,7 +67,7 @@ const prev = () => { active.value = (active.value + levels.length - 1) % levels.
 const next = () => { active.value = (active.value + 1) % levels.length }
 
 // ── drag / swipe ──
-const dragX = ref(0)
+const dragFrac = ref(0)
 const dragging = ref(false)
 let startX = 0
 let fanGap = 150
@@ -107,11 +107,6 @@ function onUp(e) {
     if (card) active.value = +card.dataset.idx
   }
   dragFrac.value = 0
-}
-
-function onCardClick(i) {
-  if (moved) return                      // drag yang berakhir di kartu ≠ klik
-  active.value = i
 }
 
 function cardStyle(i) {
