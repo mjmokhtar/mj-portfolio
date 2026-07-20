@@ -62,7 +62,6 @@ const catTint = {
 }
 
 // ── carousel ──
-// ── carousel ──
 const active = ref(1)
 const prev = () => { active.value = (active.value + levels.length - 1) % levels.length }
 const next = () => { active.value = (active.value + 1) % levels.length }
@@ -71,42 +70,62 @@ const next = () => { active.value = (active.value + 1) % levels.length }
 const dragX = ref(0)
 const dragging = ref(false)
 let startX = 0
+let fanGap = 150
+let moved = false
 
 function onDown(e) {
   dragging.value = true
+  moved = false
   startX = e.clientX
-  dragX.value = 0
+  dragFrac.value = 0
+  // baca gap aktual dari CSS var (150 desktop / 78 mobile)
+  const gap = parseFloat(
+    getComputedStyle(e.currentTarget).getPropertyValue('--fan-gap')
+  )
+  if (gap) fanGap = gap
+  e.currentTarget.setPointerCapture?.(e.pointerId)
 }
+
 function onMove(e) {
   if (!dragging.value) return
-  dragX.value = e.clientX - startX
+  const dx = e.clientX - startX
+  if (Math.abs(dx) > 5) moved = true
+  dragFrac.value = -dx / fanGap          // kanan→kiri = maju satu kartu per gap
 }
+
 function onUp() {
   if (!dragging.value) return
   dragging.value = false
-  const THRESHOLD = 60
-  if (dragX.value <= -THRESHOLD) next()
-  else if (dragX.value >= THRESHOLD) prev()
-  dragX.value = 0
+  const n = levels.length
+  const target = Math.round(active.value + dragFrac.value)   // snap terdekat
+  active.value = ((target % n) + n) % n
+  dragFrac.value = 0
+}
+
+function onCardClick(i) {
+  if (moved) return                      // drag yang berakhir di kartu ≠ klik
+  active.value = i
 }
 
 function cardStyle(i) {
-  let d = i - active.value
-  if (d > levels.length / 2) d -= levels.length
-  if (d < -levels.length / 2) d += levels.length
-  const abs = Math.abs(d)
+  const n = levels.length
+  const pos = active.value + (dragging.value ? dragFrac.value : 0)
 
-  // di luar jarak 2: hilang total, tidak ada yang terpotong di tepi
-  const hidden = abs > 2
+  let d = i - pos
+  d = ((d % n) + n) % n                  // wrap melingkar, tetap fraksional
+  if (d > n / 2) d -= n
+
+  const abs = Math.abs(d)
+  const hidden = abs > 2.5
 
   return {
-    transform: `translateX(calc(${d} * var(--fan-gap) + ${dragging.value ? dragX.value : 0}px)) rotate(${d * 9}deg) scale(${1 - abs * 0.07})`,
-    zIndex: 10 - abs,
-    opacity: hidden ? 0 : 1 - abs * 0.25,
-    filter: abs === 0 ? 'none' : `blur(${abs * 0.6}px)`,
+    transform: `translateX(calc(${d} * var(--fan-gap))) rotate(${d * 9}deg) scale(${1 - Math.min(abs, 3) * 0.07})`,
+    zIndex: 20 - Math.round(abs * 2),
+    opacity: hidden ? 0 : Math.max(0, 1 - abs * 0.25),
+    filter: `blur(${(Math.min(abs, 3) * 0.6).toFixed(2)}px)`,
     background: levels[i].color,
     pointerEvents: hidden ? 'none' : 'auto',
-    transition: dragging.value ? 'none' : undefined,   // ikut jari saat drag
+    transition: dragging.value ? 'none' : undefined,
   }
 }
 </script>
@@ -153,7 +172,7 @@ function cardStyle(i) {
           <article v-for="(l, i) in levels" :key="l.n"
             class="fan-card"
             :style="cardStyle(i)"
-            @click="active = i">
+            @click="onCardClick(i)">
             <span class="fc-pill">Level {{ l.n }} · {{ l.name }}</span>
             <div class="fc-panel">
               <p class="fc-label">Traits</p>
