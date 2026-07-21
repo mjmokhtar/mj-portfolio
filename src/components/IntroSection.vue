@@ -12,7 +12,7 @@ import { meta } from '../data/meta.js'
       <div class="grid grid-cols-1 lg:grid-cols-4 text-secondary gap-6">
         <!-- big lead -->
         <p class="lg:col-span-3 lg:text-5xl text-3xl indent-32 swap-bootzy lg: mt-10 lg:mb-10"
-          style="font-family:'Playfair Display',serif;font-weight:700;line-height:1.3;"
+          style="font-family:'Playfair Display',serif;font-weight:700;line-height:64px;"
           data-aos="fade-up" data-aos-duration="2000">
           {{ meta.bio.lead }}
         </p>
@@ -45,7 +45,7 @@ import { meta } from '../data/meta.js'
         </div>
         <!-- big closing -->
         <p class="lg:col-span-3 lg:col-start-2 lg:text-7xl text-3xl indent-32 lg:mt-16 swap-broadsheet"
-          style="font-family:'Playfair Display',serif;font-weight:700;line-height:1.1;"
+          style="font-family:'Playfair Display',serif;font-weight:700;line-height:80px;font-size: 78px;"
           data-aos="fade-up" data-aos-duration="3000"
           v-html="meta.bio.closing" />
       </div>
@@ -237,12 +237,19 @@ import { meta } from '../data/meta.js'
 /* ukuran khusus desktop */
 @media (min-width: 1024px) {
   .swap-bootzy:hover     { 
-    font-size: 60px; 
-    line-height: 1.04 !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
+    font-size: 63px; 
+    line-height: 64px !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
   }
   .swap-broadsheet:hover { 
-    font-size: 85px; 
-    line-height: 79.2px !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
+    font-size: 97px !important; 
+    line-height: 79.9px !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
+  }
+  /* Firefox SAJA — harus di bawah rule default */
+  @supports (-moz-appearance: none) {
+    .swap-broadsheet:hover {
+      font-size: 94px !important;
+      line-height: 79.6px !important;
+    }
   }
 }
 
