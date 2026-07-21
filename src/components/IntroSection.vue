@@ -11,8 +11,7 @@ import { meta } from '../data/meta.js'
     <div class="px-8 max-w-7xl mx-auto py-6 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-4 text-secondary gap-6">
         <!-- big lead -->
-        <p class="lg:col-span-3 lg:text-5xl text-3xl indent-32 swap-bootzy lg: mt-10 lg:mb-10"
-          style="font-family:'Playfair Display',serif;font-weight:700;line-height:64px;"
+        <p class="lg:col-span-3 lg:text-5xl text-3xl indent-16 lg:indent-32 swap-bootzy intro-lead lg:mt-10 lg:mb-10"
           data-aos="fade-up" data-aos-duration="2000">
           {{ meta.bio.lead }}
         </p>
@@ -44,8 +43,7 @@ import { meta } from '../data/meta.js'
           </div>
         </div>
         <!-- big closing -->
-        <p class="lg:col-span-3 lg:col-start-2 lg:text-7xl text-3xl indent-32 lg:mt-16 swap-broadsheet"
-          style="font-family:'Playfair Display',serif;font-weight:700;line-height:80px;font-size: 78px;"
+        <p class="lg:col-span-3 lg:col-start-2 lg:text-7xl text-3xl indent-10 lg:indent-32 swap-broadsheet intro-closing lg:mt-16"
           data-aos="fade-up" data-aos-duration="3000"
           v-html="meta.bio.closing" />
       </div>
@@ -234,8 +232,27 @@ import { meta } from '../data/meta.js'
   max-width: none;           /* penting: lepas batas lebar Tailwind */
 }
 
+.intro-lead {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.intro-closing {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
 /* ukuran khusus desktop */
 @media (min-width: 1024px) {
+  .intro-lead{
+    line-height:64px;
+  }
+  .intro-closing{
+    line-height:80px;
+    font-size: 78px;
+  }
   .swap-bootzy:hover     { 
     font-size: 63px; 
     line-height: 64px !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
@@ -266,11 +283,11 @@ import { meta } from '../data/meta.js'
   }
   .swap-bootzy:hover     { 
     font-size: 40px; 
-    line-height: 1.04 !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
+    line-height: .863 !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
   }
   .swap-broadsheet:hover { 
-    font-size: 35px; 
-    /* line-height: 1.05 !important;   */
+    font-size: 40px; 
+    line-height: 31.2px !important;  
   }
   .swap-dmmono:hover {
     font-family: var(--font-dm-mono);
