@@ -186,7 +186,7 @@ import { meta } from '../data/meta.js'
 }
 
 /* ── font swap saat hover ── */
-.swap-bootzy, .swap-grotesque, .swap-dmmono, .swap-broadsheet {
+.swap-bootzy, .swap-broadsheet {
   cursor: crosshair;
 }
 
@@ -196,14 +196,14 @@ import { meta } from '../data/meta.js'
   /* font-size: 60px; */
 }
 
-.swap-grotesque:hover {
+.swap-grotesque {
   font-family: var(--font-grotesque);
   font-weight: 500;
   font-size: 1.25rem;      /* DG x-height kecil — dikompensasi sedikit */
   line-height: 1.28;
 }
 
-.swap-dmmono:hover {
+.swap-dmmono {
   font-family: var(--font-dm-mono);
   font-weight: 500;
   font-style: italic;
@@ -258,14 +258,14 @@ import { meta } from '../data/meta.js'
     line-height: 64px !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
   }
   .swap-broadsheet:hover { 
-    font-size: 97px !important; 
-    line-height: 79.9px !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
+    font-size: 95px !important; 
+    line-height: 80px !important;  /* = 72px × 1.1, tinggi baris Playfair closing */
   }
   /* Firefox SAJA — harus di bawah rule default */
   @supports (-moz-appearance: none) {
     .swap-broadsheet:hover {
       font-size: 94px !important;
-      line-height: 79.6px !important;
+      line-height: 79.7px !important;
     }
   }
 }
@@ -289,7 +289,7 @@ import { meta } from '../data/meta.js'
     font-size: 40px; 
     line-height: 31.2px !important;  
   }
-  .swap-dmmono:hover {
+  .swap-dmmono {
     font-family: var(--font-dm-mono);
     font-weight: 500;
     font-style: italic;
